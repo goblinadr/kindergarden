@@ -1,11 +1,15 @@
 package kindergarden.entity;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 
 public class Child {
     private int id;
     private String name;
     private String surname;
-    private int age;
+    private Date dateOfBurth;
 
     public Child() {
 
@@ -16,10 +20,10 @@ public class Child {
         this.surname = surname;
     }
 
-    public Child(String name, String surname, int age) {
+    public Child(String name, String surname, Date dateOfBurth) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
+        this.dateOfBurth = dateOfBurth;
     }
 
     public int getId() {
@@ -46,12 +50,17 @@ public class Child {
         this.surname = surname;
     }
 
+    public Date getDateOfBurth() {
+        return dateOfBurth;
+    }
+
+    public void setDateOfBurth(Date dateOfBurth) {
+        this.dateOfBurth = dateOfBurth;
+    }
+
     public int getAge() {
-        return age;
+        Calendar burthCal = GregorianCalendar.getInstance();
+        burthCal.setTime(dateOfBurth);
+        return Math.max(GregorianCalendar.getInstance().get(Calendar.YEAR) - burthCal.get(Calendar.YEAR), 0);
     }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
 }
