@@ -10,6 +10,7 @@ public class Child {
     private String name;
     private String surname;
     private Date dateOfBurth;
+    private int groupId;
 
     public Child() {
 
@@ -56,6 +57,14 @@ public class Child {
 
     public void setDateOfBurth(Date dateOfBurth) {
         this.dateOfBurth = dateOfBurth;
+    }
+    
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
     public int getAge() {

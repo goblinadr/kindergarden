@@ -1,4 +1,4 @@
-package kindergarden.persistence.impl;
+package kindergarden.persistence.impl.transactional;
 
 import java.io.Serializable;
 
@@ -6,17 +6,17 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import kindergarden.ConnectionUtils;
-import kindergarden.entity.Child;
-import kindergarden.persistence.ChildrenDAO;
+import kindergarden.entity.Group;
+import kindergarden.persistence.GroupDAO;
 
-public class TransactionalChildrenDAO implements ChildrenDAO{
+public class TransactionalGroupDAO implements GroupDAO {
 
     @Override
-    public Serializable saveChild(Child child) {
+    public Serializable saveGroup(Group group) {
         Session ses = ConnectionUtils.getSession();
         Transaction t = ses.beginTransaction();
-        try {           
-            Serializable res = ses.save(child);
+        try {
+            Serializable res = ses.save(group);
             t.commit();
             return res;
         } catch (Exception e) {
@@ -26,15 +26,15 @@ public class TransactionalChildrenDAO implements ChildrenDAO{
             return null;
         } finally {
             ses.close();
-        }    
+        }
     }
 
     @Override
-    public boolean deleteChild(Child child) {
+    public boolean deleteGroup(Group group) {
         Session ses = ConnectionUtils.getSession();
         Transaction t = ses.beginTransaction();
-        try {           
-            ses.delete(child);
+        try {
+            ses.delete(group);
             t.commit();
             return true;
         } catch (Exception e) {
@@ -44,16 +44,15 @@ public class TransactionalChildrenDAO implements ChildrenDAO{
             return false;
         } finally {
             ses.close();
-        }  
-        
+        }
     }
 
     @Override
-    public boolean updateChild(Child child) {
+    public boolean updateGroup(Group group) {
         Session ses = ConnectionUtils.getSession();
         Transaction t = ses.beginTransaction();
-        try {           
-            ses.update(child);
+        try {
+            ses.update(group);
             t.commit();
             return true;
         } catch (Exception e) {
@@ -63,7 +62,7 @@ public class TransactionalChildrenDAO implements ChildrenDAO{
             return false;
         } finally {
             ses.close();
-        }          
+        }
     }
 
 }

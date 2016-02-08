@@ -21,8 +21,15 @@ create table kindergarden.kindergarden (
 	name varchar(40)
 );
 
-
 alter table kindergarden.child drop column age;
 alter table kindergarden.child 
 add burth_date DATE;
+
+alter table kindergarden.child 
+add group_id integer;
+
+alter table kindergarden.child
+add CONSTRAINT fk_ChildGroup
+FOREIGN KEY (group_id)
+REFERENCES kindergarden.group(group_id);
 

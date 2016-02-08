@@ -1,22 +1,11 @@
 package kindergarden;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import kindergarden.entity.Child;
-import kindergarden.persistence.ChildrenDAO;
-import kindergarden.persistence.impl.ChildrenDAOFactory;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import kindergarden.entity.Group;
 
 public class HibernateTests {
 
@@ -27,13 +16,16 @@ public class HibernateTests {
       Child childOne = new Child("Владимир", "Макаров", oneDB);
       Child childTwo = new Child("Алексей", "Киржаков", oneDB);
         
-      ChildrenDAO dao =  ChildrenDAOFactory.getChildrenDAO();
-      Serializable id1 = dao.saveChild(childOne);
-      System.out.println(childOne.getId());
-      childOne.setId((Integer) id1);
-      Serializable id2 = dao.saveChild(childTwo);
-      System.out.println(childTwo.getId());
-      childTwo.setId((Integer) id2);
+      Group group1 = new Group();
+      group1.setName("Preporational");
+ //     group1
+//      ChildrenDAO dao =  DAOFactory.getDAO(ChildrenDAO.class);
+//      Serializable id1 = dao.saveChild(childOne);
+//      System.out.println(childOne.getId());
+//      childOne.setId((Integer) id1);
+//      Serializable id2 = dao.saveChild(childTwo);
+//      System.out.println(childTwo.getId());
+//      childTwo.setId((Integer) id2);
       
       
 //      System.out.println("Deleting created objects from DB");

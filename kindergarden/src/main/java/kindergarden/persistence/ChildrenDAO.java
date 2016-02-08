@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import kindergarden.entity.Child;
 
-public interface ChildrenDAO {
+public interface ChildrenDAO extends RootDAO {
     Serializable saveChild(Child child);
 
     boolean deleteChild(Child child);

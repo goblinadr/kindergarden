@@ -9,7 +9,10 @@
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">cexrfh</property>
 		<property name="hibernate.connection.pool_size">20</property>
+		
 		<mapping resource="mapping/postgresql/Child.hbm.xml" />
+		<mapping resource="mapping/postgresql/Group.hbm.xml" />
+		<mapping resource="mapping/postgresql/Kindergarden.hbm.xml" />
 	</session-factory>
 
 
