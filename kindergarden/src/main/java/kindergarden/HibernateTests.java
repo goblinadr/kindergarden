@@ -18,6 +18,12 @@ public class HibernateTests {
         
       Group group1 = new Group();
       group1.setName("Preporational");
+      
+      
+      
+      
+      
+      
  //     group1
 //      ChildrenDAO dao =  DAOFactory.getDAO(ChildrenDAO.class);
 //      Serializable id1 = dao.saveChild(childOne);
